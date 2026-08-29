@@ -49,6 +49,18 @@
 
   /* ---------- Header / hero ---------- */
   header{padding:5.5rem 0 3.5rem;border-bottom:1px solid var(--hairline)}
+  .hero{display:flex;align-items:flex-start;gap:2rem;justify-content:space-between}
+  .avatar{
+    width:7.5rem;height:7.5rem;
+    border-radius:14px;
+    border:1px solid var(--hairline);
+    object-fit:cover;
+    flex-shrink:0;
+  }
+  @media (max-width:38rem){
+    .hero{flex-direction:column-reverse;gap:1.25rem}
+    .avatar{width:5.5rem;height:5.5rem}
+  }
   .name{
     font-family:"Archivo",sans-serif;
     font-weight:850;
@@ -177,7 +189,11 @@
 
 <header>
   <div class="wrap">
-    <h1 class="name">Royston<br>Monteiro</h1>
+    <div class="hero">
+      <h1 class="name">Royston<br>Monteiro</h1>
+      <img class="avatar" src="https://github.com/royston.png?size=240" alt="Portrait of Royston Monteiro">
+    </div>
+    <!-- .hero closed above; meta spans full width -->
     <div class="meta" aria-label="Profile summary">
       <div><span class="k">role</span><b>Staff Software Engineer (IC6), Meta</b></div>
       <div><span class="k">location</span><b>San Francisco Bay Area</b></div>
@@ -317,6 +333,22 @@
       <a href="https://www.linkedin.com/in/roystonmonteiro/">linkedin/roystonmonteiro</a>
       <a href="https://github.com/royston">github/royston</a>
     </div>
+
+    <!-- ========== LinkedIn profile badge (optional) ==========
+         1. On LinkedIn: Me → View Profile → "Edit public profile & URL"
+            → "Create a public profile badge", then copy your snippet.
+         2. Replace the block below with the code LinkedIn gives you.
+         It will look roughly like this: -->
+    <div style="margin-top:2rem">
+      <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+      <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium"
+           data-theme="light" data-type="HORIZONTAL"
+           data-vanity="roystonmonteiro" data-version="v1">
+        <a class="badge-base__link LI-simple-link"
+           href="https://www.linkedin.com/in/roystonmonteiro?trk=profile-badge">Royston Monteiro</a>
+      </div>
+    </div>
+    <!-- ======================================================== -->
   </div>
 </footer>
 
