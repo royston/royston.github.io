@@ -1,102 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Royston Monteiro</title>
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-           max-width: 640px; margin: 60px auto; padding: 0 20px;
-           color: #222; line-height: 1.55; }
-    h1 { margin-bottom: 2px; font-size: 1.7em; }
-    h2 { font-size: 1.05em; margin-top: 1.8em; margin-bottom: 0.4em;
-         text-transform: uppercase; letter-spacing: 0.06em; color: #555; }
-    .sub { color: #666; margin-top: 0; }
-    ul { padding-left: 1.2em; margin-top: 0.3em; }
-    li { margin-bottom: 0.45em; }
-    a { color: #0a58a3; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .contact { margin-top: 1.6em; padding-top: 1em; border-top: 1px solid #ddd;
-               font-size: 0.95em; color: #444; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Royston Monteiro — Staff Software Engineer</title>
+<meta name="description" content="Royston Monteiro — Staff Software Engineer at Meta. Backend systems for large-scale ML and generative AI products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFBFD;
+    --ink:#10151C;
+    --slate:#5A6572;
+    --accent:#2242C8;
+    --hairline:#E3E8EF;
+    --card:#FFFFFF;
+    --maxw:56rem;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#0E1116;
+      --ink:#E8EBF0;
+      --slate:#8A94A3;
+      --accent:#7C96FF;
+      --hairline:#232A34;
+      --card:#141922;
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+    font-size:1.0625rem;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.5rem}
+
+  /* ---------- Header / hero ---------- */
+  header{padding:5.5rem 0 3.5rem;border-bottom:1px solid var(--hairline)}
+  .name{
+    font-family:"Archivo",sans-serif;
+    font-weight:850;
+    font-stretch:95%;
+    font-size:clamp(2.6rem,7vw,4.25rem);
+    letter-spacing:-0.02em;
+    line-height:1.02;
+  }
+  .meta{
+    margin-top:1.75rem;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:0.8125rem;
+    line-height:2;
+    color:var(--slate);
+    border-left:2px solid var(--accent);
+    padding-left:1rem;
+  }
+  .meta b{color:var(--ink);font-weight:500}
+  .meta .k{display:inline-block;min-width:6.5rem;color:var(--slate)}
+  .lede{margin-top:1.75rem;max-width:44rem;font-size:1.125rem}
+  .lede strong{font-weight:600}
+
+  /* ---------- Sections ---------- */
+  section{padding:3rem 0;border-bottom:1px solid var(--hairline)}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:0.75rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:1.75rem;
+  }
+  h2.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+  /* Experience rows */
+  .row{
+    display:grid;
+    grid-template-columns:9.5rem 1fr;
+    gap:1.25rem;
+    padding:1.1rem 0;
+  }
+  .row + .row{border-top:1px solid var(--hairline)}
+  .when{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:0.8125rem;
+    color:var(--slate);
+    padding-top:0.2rem;
+  }
+  .what h3{font-size:1.0625rem;font-weight:600}
+  .what .org{color:var(--slate);font-weight:400}
+  .what p{margin-top:0.35rem;color:var(--slate);font-size:0.9375rem}
+  .what p b{color:var(--ink);font-weight:500}
+
+  /* Selected work cards */
+  .work{display:grid;gap:0.9rem}
+  .card{
+    background:var(--card);
+    border:1px solid var(--hairline);
+    border-radius:10px;
+    padding:1.25rem 1.4rem;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .card:hover{border-color:var(--accent)}
+  .card h3{font-size:1rem;font-weight:600;margin-bottom:0.3rem}
+  .card p{font-size:0.9375rem;color:var(--slate)}
+  .card p b{color:var(--ink);font-weight:500}
+  .tag{
+    display:inline-block;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:0.6875rem;
+    letter-spacing:0.06em;
+    color:var(--accent);
+    margin-bottom:0.45rem;
+  }
+
+  /* Service list */
+  .svc{list-style:none;display:grid;gap:0.55rem}
+  .svc li{
+    padding-left:1.35rem;
+    position:relative;
+    font-size:0.9688rem;
+  }
+  .svc li::before{
+    content:"—";
+    position:absolute;left:0;color:var(--accent);
+  }
+  .svc b{font-weight:600}
+  .svc .yr{font-family:"IBM Plex Mono",monospace;font-size:0.75rem;color:var(--slate)}
+
+  /* Interests */
+  .chips{display:flex;flex-wrap:wrap;gap:0.5rem}
+  .chip{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:0.75rem;
+    color:var(--ink);
+    border:1px solid var(--hairline);
+    background:var(--card);
+    border-radius:999px;
+    padding:0.35rem 0.85rem;
+  }
+
+  /* Footer / contact */
+  footer{padding:3rem 0 5rem}
+  .contact{
+    display:flex;flex-wrap:wrap;gap:0.75rem;
+  }
+  .contact a{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:0.8125rem;
+    border:1px solid var(--hairline);
+    border-radius:8px;
+    padding:0.6rem 1rem;
+    color:var(--ink);
+    background:var(--card);
+    transition:border-color .15s ease;
+  }
+  .contact a:hover{border-color:var(--accent);text-decoration:none;color:var(--accent)}
+
+  @media (max-width:38rem){
+    header{padding:3.5rem 0 2.5rem}
+    .row{grid-template-columns:1fr;gap:0.2rem}
+  }
+</style>
 </head>
 <body>
 
-  <h1>Royston Monteiro</h1>
-  <p class="sub">Staff Software Engineer, Meta &middot; San Francisco Bay Area</p>
-
-  <p>I build backend systems for large-scale ML and generative AI products.
-     At Meta, I lead backend engineering for GenAI and ML-powered features on
-     Facebook Stories — a surface used by hundreds of millions of people daily —
-     including multimodal suggested replies, conversational suggestion systems,
-     and the quality-evaluation infrastructure used to gate GenAI launches.</p>
-
-  <h2>Experience</h2>
-  <ul>
-    <li><strong>Meta</strong> (2017–present) — Staff Software Engineer (IC6),
-        Facebook Stories backend. Technical lead for GenAI Suggested Replies,
-        Contextual Replies, Notifications, and Feedback workstreams.</li>
-    <li><strong>Earlier career</strong> — risk-systems engineering at
-        Morgan Stanley, Goldman Sachs, and Oracle: counterparty-risk (CVA/RWA)
-        and CCAR stress-testing infrastructure, grid-computing optimization.</li>
-    <li><strong>Education</strong> — M.S., New York University.</li>
-  </ul>
-
-  <h2>Selected Work</h2>
-  <ul>
-    <li>Backend lead for multimodal GenAI suggested replies on Facebook
-        Stories — integrating large language and visual content-understanding
-        models into a real-time consumer product under production latency,
-        cost, and integrity constraints.</li>
-    <li>Built automated quality-evaluation and launch-gating systems for
-        generative AI features: structured human evaluation at scale,
-        secondary-LLM prompt-quality pipelines, and per-suggestion
-        engagement measurement.</li>
-    <li>Led integrity recovery and internationalization of ML-driven
-        conversational suggestion systems, including expansion to
-        non-English markets via translation-pathway architecture.</li>
-    <li>Designed server-side interactive-overlay generation and the
-        code-generation framework ("Autogen") behind Stories' interactive
-        feedback formats.</li>
-    <li>Shipped products include <strong>Candid Stories</strong> (Meta's 2022
-        dual-camera Stories format — backend lead), the <strong>Stories
-        Archive</strong> and its Activity Log / data-portability layer, and
-        Stories' interactive <strong>polls, reactions, and sticker
-        feedback</strong> formats.</li>
-  </ul>
-
-  <h2>Professional Service</h2>
-  <ul>
-    <li>Reviewer, <strong>TAE: Can We Trust AI Evaluation?</strong> — workshop at NeurIPS 2026.</li>
-    <li>Reviewer, <strong>VLM4RWD: Vision-Language Models for Real-World Deployment</strong> — workshop at NeurIPS 2026.</li>
-    <li>Judge, <strong>Apart Research — Global South AI Safety Hackathon</strong>
-        (2026): independent review of 8 research projects; 104-judge panel,
-        217 submissions across three continental hubs.</li>
-    <li>Research Mentor, <strong>Apart Lab Studio</strong> (2026) —
-        fellowship-track research development program.</li>
-    <li>Speaker, <strong>You.com AI Forum: Building Enterprise Agents</strong>
-        (Databricks SF, 2026).</li>
-    <li>First-round Judge, <strong>SIIA CODiE Awards</strong> — Business
-        Technology &amp; AI categories (2023).</li>
-    <li>Judge, <strong>UC Berkeley AI Hackathon</strong> (Cal Hacks &times;
-        Berkeley SkyDeck, 2023), <strong>HackMIT</strong> (2023),
-        <strong>HackHarvard</strong> (2023), <strong>TreeHacks</strong>
-        (Stanford, 2023), <strong>HackIllinois</strong> (UIUC, 2023).</li>
-    <li>Engineering mentorship at Meta: bootcamp coach, intern manager,
-        and mentor of record for engineers across levels.</li>
-  </ul>
-
-  <h2>Reviewing Interests</h2>
-  <p>Multimodal ML systems &middot; conversational AI &middot; LLM evaluation
-     and quality measurement &middot; production ML/GenAI infrastructure
-     &middot; ML internationalization and low-resource deployment
-     &middot; AI safety and integrity in consumer systems.</p>
-
-  <div class="contact">
-    Email: roystonpm@gmail.com<br>
-    LinkedIn: <a href="https://www.linkedin.com/in/roystonmonteiro/">linkedin.com/in/roystonmonteiro</a><br>
-    GitHub: <a href="https://github.com/royston">github.com/royston</a>
+<header>
+  <div class="wrap">
+    <h1 class="name">Royston<br>Monteiro</h1>
+    <div class="meta" aria-label="Profile summary">
+      <div><span class="k">role</span><b>Staff Software Engineer (IC6), Meta</b></div>
+      <div><span class="k">location</span><b>San Francisco Bay Area</b></div>
+      <div><span class="k">focus</span><b>backend systems · large-scale ML · generative AI</b></div>
+    </div>
+    <p class="lede">
+      I lead backend engineering for GenAI and ML-powered features on
+      <strong>Facebook Stories</strong> — a surface used by hundreds of millions of
+      people daily — including multimodal suggested replies, conversational
+      suggestion systems, and the quality-evaluation infrastructure used to
+      gate GenAI launches.
+    </p>
   </div>
+</header>
+
+<section id="experience">
+  <div class="wrap">
+    <p class="eyebrow">Experience</p>
+    <h2 class="visually-hidden">Experience</h2>
+
+    <div class="row">
+      <div class="when">2017 — present</div>
+      <div class="what">
+        <h3>Staff Software Engineer <span class="org">· Meta</span></h3>
+        <p>Facebook Stories backend. Technical lead for <b>GenAI Suggested
+        Replies</b>, Contextual Replies, Notifications, and Feedback
+        workstreams.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="when">earlier</div>
+      <div class="what">
+        <h3>Risk-Systems Engineering <span class="org">· Morgan Stanley, Goldman Sachs, Oracle</span></h3>
+        <p>Counterparty-risk (CVA/RWA) and CCAR stress-testing
+        infrastructure; grid-computing optimization.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="when">education</div>
+      <div class="what">
+        <h3>M.S. <span class="org">· New York University</span></h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <p class="eyebrow">Selected Work</p>
+    <h2 class="visually-hidden">Selected Work</h2>
+    <div class="work">
+
+      <div class="card">
+        <span class="tag">genai · multimodal</span>
+        <h3>Multimodal GenAI Suggested Replies</h3>
+        <p>Backend lead — integrating large language and visual
+        content-understanding models into a real-time consumer product under
+        production latency, cost, and integrity constraints.</p>
+      </div>
+
+      <div class="card">
+        <span class="tag">evaluation · launch gating</span>
+        <h3>Quality-Evaluation &amp; Launch-Gating Systems</h3>
+        <p>Structured human evaluation at scale, secondary-LLM prompt-quality
+        pipelines, and per-suggestion engagement measurement for generative
+        AI features.</p>
+      </div>
+
+      <div class="card">
+        <span class="tag">integrity · i18n</span>
+        <h3>Internationalization of Conversational Suggestions</h3>
+        <p>Led integrity recovery and expansion of ML-driven suggestion
+        systems to non-English markets via translation-pathway
+        architecture.</p>
+      </div>
+
+      <div class="card">
+        <span class="tag">infrastructure · codegen</span>
+        <h3>Interactive Overlays &amp; “Autogen”</h3>
+        <p>Designed server-side interactive-overlay generation and the
+        code-generation framework behind Stories’ interactive feedback
+        formats.</p>
+      </div>
+
+      <div class="card">
+        <span class="tag">shipped products</span>
+        <h3>Candid Stories · Stories Archive · Feedback Formats</h3>
+        <p>Backend lead for <b>Candid Stories</b> (Meta’s 2022 dual-camera
+        format); built the <b>Stories Archive</b> with its Activity Log and
+        data-portability layer; shipped interactive <b>polls, reactions, and
+        sticker feedback</b>.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="service">
+  <div class="wrap">
+    <p class="eyebrow">Professional Service</p>
+    <h2 class="visually-hidden">Professional Service</h2>
+    <ul class="svc">
+      <li><b>Reviewer</b>, TAE: Can We Trust AI Evaluation? — workshop at NeurIPS <span class="yr">2026</span></li>
+      <li><b>Reviewer</b>, VLM4RWD: Vision-Language Models for Real-World Deployment — workshop at NeurIPS <span class="yr">2026</span></li>
+      <li><b>Judge</b>, Apart Research — Global South AI Safety Hackathon: independent review of 8 research projects; 104-judge panel, 217 submissions across three continental hubs <span class="yr">2026</span></li>
+      <li><b>Research Mentor</b>, Apart Lab Studio — fellowship-track research development program <span class="yr">2026</span></li>
+      <li><b>Speaker</b>, You.com AI Forum: Building Enterprise Agents — Databricks SF <span class="yr">2026</span></li>
+      <li><b>First-round Judge</b>, SIIA CODiE Awards — Business Technology &amp; AI categories <span class="yr">2023</span></li>
+      <li><b>Judge</b>, UC Berkeley AI Hackathon (Cal Hacks × Berkeley SkyDeck), HackMIT, HackHarvard, TreeHacks (Stanford), HackIllinois (UIUC) <span class="yr">2023</span></li>
+      <li><b>Engineering mentorship at Meta</b> — bootcamp coach, intern manager, and mentor of record for engineers across levels</li>
+    </ul>
+  </div>
+</section>
+
+<section id="interests">
+  <div class="wrap">
+    <p class="eyebrow">Reviewing Interests</p>
+    <h2 class="visually-hidden">Reviewing Interests</h2>
+    <div class="chips">
+      <span class="chip">multimodal ML systems</span>
+      <span class="chip">conversational AI</span>
+      <span class="chip">LLM evaluation &amp; quality measurement</span>
+      <span class="chip">production ML/GenAI infrastructure</span>
+      <span class="chip">ML internationalization &amp; low-resource deployment</span>
+      <span class="chip">AI safety &amp; integrity in consumer systems</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <div class="contact">
+      <a href="mailto:roystonpm@gmail.com">roystonpm@gmail.com</a>
+      <a href="https://www.linkedin.com/in/roystonmonteiro/">linkedin/roystonmonteiro</a>
+      <a href="https://github.com/royston">github/royston</a>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
